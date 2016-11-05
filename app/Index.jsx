@@ -1,19 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Nav from './components/Nav.jsx';
-import SearchBar from './components/SearchBar.jsx';
-import SearchResults from './components/SearchResults.jsx';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import Home from './components/Home.jsx';
 
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <Nav/>
-                <SearchBar/>
-                <SearchResults/>
-            </div>
-        );
-    }
-}
+const reactAppDom = document.getElementById('app');
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(
+    <Router history={hashHistory}>
+        <Route path="/" component={Home} />
+    </Router>,
+    reactAppDom);

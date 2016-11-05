@@ -18,8 +18,8 @@ class Nav extends React.Component {
                             <div className="navbar-brand" href="#"><i className="fa fa-rebel" aria-hidden="true"></i></div>
                         </div>
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <SearchTypeSelector/>
-                            <SearchCount/>
+                            <SearchTypeSelector />
+                            <SearchCount />
                         </div>
                     </div>
                 </div>

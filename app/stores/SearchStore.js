@@ -24,12 +24,12 @@ class SearchStore extends EventEmitter {
         this.searchResults = [];
         this.totalResultsCount = 0;
         if (!this.searchQuery) {
-            this.failure = ' Please enter search Query';
+            this.failure = 'Please enter search Query';
             this.emit(SearchStoreEvents.SEARCH_FAILED);
             return;
         }
         this.emit(SearchStoreEvents.SEARCH_IN_PROGRESS);
-        let searchUrl = `${SEARCH_API_URL}?q=${this.searchQuery}&type=${this.searchType}`;
+        let searchUrl = `${SEARCH_API_URL}?q=${encodeURI(this.searchQuery)}&type=${this.searchType}`;
         fetch(searchUrl).then((response) => response.json())
             .then((responseJSON) => {
                 this.searchResults = responseJSON.artists.items;
@@ -62,6 +62,14 @@ class SearchStore extends EventEmitter {
             this.searchResultsForQuery();
         } else if (actions.type == 'SEARCH_BY_TYPE') {
             this.searchType = actions.searchType;
+            this.searchResultsForQuery();
+        } else if (actions.type == 'SEARCH_BY_TYPE_AND_QUERY') {
+            if (actions.searchType) {
+                this.searchType = actions.searchType;
+            }
+            if (actions.query) {
+                this.searchQuery = actions.query;
+            }
             this.searchResultsForQuery();
         }
     }
