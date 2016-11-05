@@ -1,5 +1,6 @@
 import { EventEmitter } from "events";
 import dispatcher from '../dispatcher';
+import { browserHistory } from 'react-router';
 
 const SEARCH_API_URL = 'https://api.spotify.com/v1/search';
 
@@ -38,6 +39,7 @@ class SearchStore extends EventEmitter {
             }).catch(() => {
                 this.emit(SearchStoreEvents.SEARCH_FAILED);
             });
+        browserHistory.push(`/#/?query=${encodeURI(this.searchQuery)}&type=${this.searchType}`);
     }
 
     getSearchResults() {

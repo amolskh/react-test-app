@@ -33,7 +33,7 @@ class SearchTypeSelector extends React.Component {
                     <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter <span className="caret"></span></a>
                     <ul className="dropdown-menu">
                         {this.searchTypes.map(function (searchType, index) {
-                            return <li key={index} onClick={searchTypeSelectorInst.changeSearchType.bind(searchTypeSelectorInst, searchType.key) }><a href="#">{searchType.value}</a></li>;
+                            return <li key={index} onClick={searchTypeSelectorInst.changeSearchType.bind(searchTypeSelectorInst, searchType.key) }><a >{searchType.value}</a></li>;
                         }) }
                     </ul>
                 </li>

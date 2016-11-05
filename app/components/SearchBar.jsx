@@ -40,7 +40,7 @@ class SearchBar extends React.Component {
                     <div className="form-group form-group-lg">
                         <div className="col-xs-12 col-sm-8 col-sm-offset-2">
                             <input {...opts} className="form-control" value={this.state.query} onChange={this.changeSearchQuery.bind(this)} type="text" id="formGroupInputLarge" placeholder="Search..." />
-                            <a className="search-icon" href="#" onClick={this.search.bind(this)}><i className="fa fa-search" aria-hidden="true"></i></a>
+                            <a className="search-icon" onClick={this.search.bind(this)}><i className="fa fa-search" aria-hidden="true"></i></a>
                             <p className="error">{this.state.failure}</p>
                         </div>
                     </div>

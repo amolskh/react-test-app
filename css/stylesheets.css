@@ -20,6 +20,11 @@ a.search-icon {
 
 a.search-icon:hover {
 	color: #777;
+  cursor: pointer; cursor: hand; 
+}
+
+.dropdown-menu li a {
+   cursor: pointer; cursor: hand; 
 }
 
 li.counter {
